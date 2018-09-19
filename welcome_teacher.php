@@ -15,8 +15,7 @@ if(!isset($_SESSION['email']))
        {
        	$id = $_GET['id'];
        }
-
-     ?>
+       ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +38,8 @@ if(!isset($_SESSION['email']))
 	</thead>
 	<tbody width="100%" border="1" align="center">
 		<tr>
-		<?php
+		<?php 
+		     // Query to take data from table
              $query = "SELECT * FROM users WHERE user_id = '$id'";
              $run_query = mysqli_query($conn,$query);
              $row = mysqli_fetch_assoc($run_query);
@@ -65,10 +65,9 @@ if(!isset($_SESSION['email']))
 				{
 					
 					$course_teacher = $row_course['course_name'];
-					?>
-				<?php echo " $course_teacher <br /> "; ?> 
-				
-		<?php	} }
+					
+				 echo " $course_teacher <br /> "; 				
+			} }
 			else
 			{
 			  echo "No Course Yet";
