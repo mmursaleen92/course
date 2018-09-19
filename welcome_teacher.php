@@ -53,29 +53,16 @@ if(!isset($_SESSION['email']))
 			<td><a href="edit_acc.php?edit=<?php echo $id; ?>"><button>edit</button></td>
 			<td><a href="delete_course.php?delete=<?php echo $id; ?>"><button>Delete Course</button></a></td>
 			<td><a href="logout.php"><button>LogOut</button></a></td>
+			<td>
 			<?php 
-			// $query_course = "SELECT * FROM courses WHERE course_teacher = '$name'";
-			// $run_query_course = mysqli_query($conn,$query_course);
-			// $course = "No Course yet";
-			// if($run_query_course)
-			// {
-			//   $row_course = mysqli_fetch_assoc($run_query_course);
-			//   $course = $row_course['course_name'];
-			// }
 			$course_query = "SELECT * FROM courses WHERE user_id = '$id'";
 			$run_course_query = mysqli_query($conn,$course_query);
 			$count = mysqli_num_rows($run_course_query);
-			$state = true;
-		//	$row_course = mysqli_fetch_array($run_course_query); 
+			//	$row_course = mysqli_fetch_array($run_course_query); 
 			if($count)
 			{
-				
-				while($row_course = mysqli_fetch_assoc($run_course_query))
+			  while($row_course = mysqli_fetch_assoc($run_course_query))
 				{
-					if($state) {
-						echo "<td>";
-						$state = false;
-					}
 					
 					$course_teacher = $row_course['course_name'];
 					?>
@@ -87,8 +74,7 @@ if(!isset($_SESSION['email']))
 			  echo "No Course Yet";
 			}
 			?>
-			</td>
-			
+			</td>			
 			<!-- <td><?php // echo $course; ?></td> -->
 		</tr>
 	</tbody>
